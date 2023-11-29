@@ -1,0 +1,15 @@
+server:
+  port: 7778
+spring:
+  application:
+    name: hystrix-monito
+      # 集群版配置
+  datasource:
+    url: jdbc:mysql://192.168.91.128:3306/springcloud?characterEncoding=UTF8&useSSL=false
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123456
+  jpa:
+    show-sql: true # 是否打印sql语句
+    generate-ddl: true # 是否自动建表
+    database: mysql # jpa连接的数据库类型
