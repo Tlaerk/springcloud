@@ -1,0 +1,34 @@
+server:
+  port: 8222
+spring:
+  application:
+    name: myshop-gateway
+  datasource:
+    url: jdbc:mysql://192.168.91.128:3306/springcloud?characterEncoding=UTF8&useSSL=false
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123456
+  jpa:
+    show-sql: true # 是否打印sql语句
+    generate-ddl: true # 是否自动建表
+    database: mysql # jpa连接的数据库类型
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8888/eureka
+  instance:
+    prefer-ip-address: true
+#zuul的动态路由配置
+zuul:
+  SendErrorFilter:
+    error:
+      disable: true
+  routes:
+    myshop-user:
+      path: /myshop-user  # 需要转发的路径
+      serviceId: myshop-user # 最终转发的微服务（名称）
+    myshop-web:
+      path: /myshop-web  # 需要转发的路径
+      serviceId: myshop-web # 最终转发的微服务（名称）
