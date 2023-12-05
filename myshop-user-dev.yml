@@ -8,6 +8,8 @@ spring: # 服务名称
     driver-class-name: com.mysql.jdbc.Driver
     username: root
     password: 123456
+  rabbitmq:
+    host: 192.168.91.128  # rabbitmq所在虚机地址
   jpa:
     show-sql: true # 是否打印sql语句
     generate-ddl: true # 是否自动建表
